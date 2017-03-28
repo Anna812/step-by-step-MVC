@@ -1,4 +1,4 @@
-﻿
+﻿@model stepByStepMVC.Models.Employee
 @{
     Layout = null;
 }
@@ -10,13 +10,22 @@
 </head>
 <body>
     <div>
-        @{
-            stepByStepMVC.Models.Employee employee = (stepByStepMVC.Models.Employee)
-                ViewData["Employee"];
-        }
         <b>Employee Details</b><br />
-        Employee Name: @employee.FirstName @employee.LastName <br />
-        Employee Salary: @employee.Salary.ToString("C")
+        Employee Name: @Model.FirstName @Model.LastName <br />
+        @if (Model.Salary > 5000)
+        {
+            <span style="background-color:yellow">
+                Employee Salary: @Model.Salary.ToString("C")
+            </span>
+        }
+        else
+        {
+            {
+                <span style="background-color:green">
+                    Employee Salary: @Model.Salary.ToString("C")
+                </span>
+            }
+        }
     </div>
 </body>
 </html>

@@ -20,9 +20,8 @@ namespace stepByStepMVC.Controllers
             employee.FirstName = "Piroska";
             employee.LastName = "Toth";
             employee.Salary = 150000;
-
-            ViewData["Employee"] = employee;
-            return View("MyView");
+            
+            return View("MyView", employee);
         }
     }
 
