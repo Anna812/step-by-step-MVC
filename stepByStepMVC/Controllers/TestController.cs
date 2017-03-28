@@ -12,5 +12,11 @@ namespace stepByStepMVC.Controllers
         {
             return "Hello World";
         }
+
+        public ActionResult GetView()
+        {
+            return View("MyView");
+        }
     }
+
 }
