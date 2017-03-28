@@ -9,6 +9,14 @@
     <title>MyView</title>
 </head>
 <body>
-    <div>Welcome</div>
+    <div>
+        @{
+            stepByStepMVC.Models.Employee employee = (stepByStepMVC.Models.Employee)
+                ViewData["Employee"];
+        }
+        <b>Employee Details</b><br />
+        Employee Name: @employee.FirstName @employee.LastName <br />
+        Employee Salary: @employee.Salary.ToString("C")
+    </div>
 </body>
 </html>

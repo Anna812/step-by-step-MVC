@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using stepByStepMVC.Models;
 
 namespace stepByStepMVC.Controllers
 {
@@ -15,6 +16,12 @@ namespace stepByStepMVC.Controllers
 
         public ActionResult GetView()
         {
+            Employee employee = new Employee();
+            employee.FirstName = "Piroska";
+            employee.LastName = "Toth";
+            employee.Salary = 150000;
+
+            ViewData["Employee"] = employee;
             return View("MyView");
         }
     }
