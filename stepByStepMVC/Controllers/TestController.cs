@@ -8,10 +8,9 @@ namespace stepByStepMVC.Controllers
 {
     public class TestController : Controller
     {
-        // GET: Test
-        public ActionResult Index()
+        public string GetString()
         {
-            return View();
+            return "Hello World";
         }
     }
 }
