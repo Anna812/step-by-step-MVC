@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using stepByStepMVC.Models;
+using stepByStepMVC.ViewModels;
 
 namespace stepByStepMVC.Controllers
 {
@@ -20,8 +21,22 @@ namespace stepByStepMVC.Controllers
             employee.FirstName = "Piroska";
             employee.LastName = "Toth";
             employee.Salary = 150000;
-            
-            return View("MyView", employee);
+
+            EmployeeViewModel employeeViewModel = new EmployeeViewModel();
+            employeeViewModel.EmployeeName = employee.FirstName + " " + employee.LastName;
+            employeeViewModel.UserName = "admin";
+            employeeViewModel.Salary = employee.Salary.ToString("C");
+
+            if(employee.Salary > 5000)
+            {
+                employeeViewModel.SalaryColor = "yellow";
+            }
+            else
+            {
+                employeeViewModel.SalaryColor = "green";
+            }
+
+            return View("MyView", employeeViewModel);
         }
     }
 
