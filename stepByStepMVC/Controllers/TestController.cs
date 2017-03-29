@@ -17,26 +17,46 @@ namespace stepByStepMVC.Controllers
 
         public ActionResult GetView()
         {
-            Employee employee = new Employee();
-            employee.FirstName = "Piroska";
-            employee.LastName = "Toth";
-            employee.Salary = 150000;
+            EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
+            employeeListViewModel.Employees = populateEmployeeListView();
+            employeeListViewModel.UserName = "admin";
 
-            EmployeeViewModel employeeViewModel = new EmployeeViewModel();
-            employeeViewModel.EmployeeName = employee.FirstName + " " + employee.LastName;
-            employeeViewModel.UserName = "admin";
-            employeeViewModel.Salary = employee.Salary.ToString("C");
+            return View("MyView", employeeListViewModel);
+        }
 
-            if(employee.Salary > 5000)
+        private List<EmployeeViewModel> populateEmployeeListView()
+        {
+            List<EmployeeViewModel> employeeViewModels = new List<EmployeeViewModel>();
+
+            foreach (Employee temp in loadEmployeeList())
             {
-                employeeViewModel.SalaryColor = "yellow";
+                EmployeeViewModel employeeViewModel = new EmployeeViewModel();
+
+                employeeViewModel.EmployeeName = temp.FirstName + " " + temp.LastName;
+                employeeViewModel.Salary = temp.Salary.ToString("C");
+                employeeViewModel.SalaryColor = defineSalaryColor(temp.Salary);
+
+                employeeViewModels.Add(employeeViewModel);
+            }
+            return employeeViewModels;
+        }
+
+        private List<Employee> loadEmployeeList()
+        {
+            EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
+            return employeeBusinessLayer.GetEmployees();
+        }
+
+        private string defineSalaryColor(int salary)
+        {
+            if (salary > 5000)
+            {
+                return "yellow";
             }
             else
             {
-                employeeViewModel.SalaryColor = "green";
+                return "green";
             }
-
-            return View("MyView", employeeViewModel);
         }
     }
 
