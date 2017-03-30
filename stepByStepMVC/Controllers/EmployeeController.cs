@@ -57,6 +57,10 @@ namespace stepByStepMVC.Controllers
                 return "green";
             }
         }
-    }
 
+        public ActionResult AddNew()
+        {
+            return View("CreateEmployee");
+        }
+    }
 }

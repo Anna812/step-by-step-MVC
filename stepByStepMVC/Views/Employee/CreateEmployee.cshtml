@@ -1,0 +1,22 @@
+﻿
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CreateEmployee</title>
+</head>
+<body>
+    <div>
+        <form action="/Employee/SaveEmployee" method="post">
+            First name: <input type="text" id="TxtFirstName" name="Firstname" value="" />
+            Last name: <input type="text" id="TxtLastName" name="LastName" value="" />
+            Salary: <input type="text" id="TxtSalary" name="Salary" value=""/>
+            <input type="submit" name="SaveButton" value="Save Employee" />
+            <input type="button" name="ResetButton" value="Reset"/>
+        </form>
+    </div>
+</body>
+</html>
