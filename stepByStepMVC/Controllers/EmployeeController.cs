@@ -19,9 +19,8 @@ namespace stepByStepMVC.Controllers
         {
             EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
             employeeListViewModel.Employees = populateEmployeeListView();
-            employeeListViewModel.UserName = "admin";
 
-            return View("MyView", employeeListViewModel);
+            return View("Index", employeeListViewModel);
         }
 
         private List<EmployeeViewModel> populateEmployeeListView()
