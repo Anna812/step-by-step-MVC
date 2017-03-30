@@ -67,17 +67,39 @@ namespace stepByStepMVC.Controllers
         {
             if(SubmitButton.Equals("Save Employee"))
             {
-                if(ModelState.IsValid)
-                {
-                    EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
-                    employeeBusinessLayer.SaveEmployee(employee);
-                }
-                else
-                {
-                    return View("CreateEmployee");
-                }
+                return ExecuteSaveAccordingToModelStateValidity(employee);
             }
+            return RedirectToAction("Index");
+        }
+
+        private ActionResult ExecuteSaveAccordingToModelStateValidity(Employee employee)
+        {
+            if (ModelState.IsValid)
+            {
+                EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
+                employeeBusinessLayer.SaveEmployee(employee);
                 return RedirectToAction("Index");
+            }
+            else
+            {
+                return View("CreateEmployee", CreateCreateEmployeeViewModel(employee));
+            }
+        }
+
+        private CreateEmployeeViewModel CreateCreateEmployeeViewModel(Employee employee)
+        {
+            CreateEmployeeViewModel createEmployeeViewModel = new CreateEmployeeViewModel();
+            createEmployeeViewModel.FirstName = employee.FirstName;
+            createEmployeeViewModel.LastName = employee.LastName;
+            if (employee.Salary.HasValue)
+            {
+                createEmployeeViewModel.Salary = employee.Salary.ToString();
+            }
+            else
+            {
+                createEmployeeViewModel.Salary = ModelState["Salary"].Value.AttemptedValue;
+            }
+            return createEmployeeViewModel;
         }
     }
 }

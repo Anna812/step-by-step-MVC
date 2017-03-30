@@ -15,6 +15,6 @@ namespace stepByStepMVC.Models
         [StringLength(5, ErrorMessage = "Last name should not be more than 5 characters")]
         public string LastName { get; set; }
         [Required(ErrorMessage = "Enter Salary")]
-        public int Salary { get; set; }
+        public int? Salary { get; set; }
     }
 }
