@@ -13,5 +13,12 @@ namespace stepByStepMVC.Models
             SalesERPDataAccessLayer salesERPDataAccessLayer = new SalesERPDataAccessLayer();
             return salesERPDataAccessLayer.Employees.ToList();
         }
+
+        public void SaveEmployee(Employee employee)
+        {
+            SalesERPDataAccessLayer salesERPDataAccessLayer = new SalesERPDataAccessLayer();
+            salesERPDataAccessLayer.Employees.Add(employee);
+            salesERPDataAccessLayer.SaveChanges();
+        }
     }
 }

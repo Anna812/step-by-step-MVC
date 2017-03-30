@@ -67,12 +67,10 @@ namespace stepByStepMVC.Controllers
         {
             if(SubmitButton.Equals("Save Employee"))
             {
-                return Content(employee.FirstName + " " + employee.LastName + " " + employee.Salary);
+                EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
+                employeeBusinessLayer.SaveEmployee(employee);
             }
-            else
-            {
                 return RedirectToAction("Index");
-            }
         }
     }
 }
