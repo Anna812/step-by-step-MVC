@@ -67,8 +67,15 @@ namespace stepByStepMVC.Controllers
         {
             if(SubmitButton.Equals("Save Employee"))
             {
-                EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
-                employeeBusinessLayer.SaveEmployee(employee);
+                if(ModelState.IsValid)
+                {
+                    EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
+                    employeeBusinessLayer.SaveEmployee(employee);
+                }
+                else
+                {
+                    return View("CreateEmployee");
+                }
             }
                 return RedirectToAction("Index");
         }
