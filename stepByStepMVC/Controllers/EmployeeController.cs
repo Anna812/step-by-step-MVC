@@ -8,14 +8,14 @@ using stepByStepMVC.ViewModels;
 
 namespace stepByStepMVC.Controllers
 {
-    public class TestController : Controller
+    public class EmployeeController : Controller
     {
         public string GetString()
         {
             return "Hello World";
         }
 
-        public ActionResult GetView()
+        public ActionResult Index()
         {
             EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
             employeeListViewModel.Employees = populateEmployeeListView();

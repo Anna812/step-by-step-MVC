@@ -156,7 +156,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\TestController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="DataAccessLayer\SalesERPDataAccessLayer.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -201,7 +201,7 @@
     <Content Include="Views\Web.config" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
-    <Content Include="Views\Test\MyView.cshtml" />
+    <Content Include="Views\Employee\Index.cshtml" />
     <Content Include="Views\Shared\Layout.cshtml" />
   </ItemGroup>
   <ItemGroup>
