@@ -63,9 +63,16 @@ namespace stepByStepMVC.Controllers
             return View("CreateEmployee");
         }
 
-        public string SaveEmployee(Employee employee)
+        public ActionResult SaveEmployee(Employee employee, string SubmitButton)
         {
-            return employee.FirstName + " " + employee.LastName + " " + employee.Salary;
+            if(SubmitButton.Equals("Save Employee"))
+            {
+                return Content(employee.FirstName + " " + employee.LastName + " " + employee.Salary);
+            }
+            else
+            {
+                return RedirectToAction("Index");
+            }
         }
     }
 }
