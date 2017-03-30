@@ -32,8 +32,8 @@ namespace stepByStepMVC.Controllers
                 EmployeeViewModel employeeViewModel = new EmployeeViewModel();
 
                 employeeViewModel.EmployeeName = temp.FirstName + " " + temp.LastName;
-                employeeViewModel.Salary = temp.Salary.ToString("C");
-                employeeViewModel.SalaryColor = defineSalaryColor(temp.Salary);
+                employeeViewModel.Salary = temp.Salary.Value.ToString("C");
+                employeeViewModel.SalaryColor = defineSalaryColor(temp.Salary.Value);
 
                 employeeViewModels.Add(employeeViewModel);
             }
@@ -60,7 +60,7 @@ namespace stepByStepMVC.Controllers
 
         public ActionResult AddNew()
         {
-            return View("CreateEmployee");
+            return View("CreateEmployee", new CreateEmployeeViewModel());
         }
 
         public ActionResult SaveEmployee(Employee employee, string SubmitButton)
