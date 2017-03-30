@@ -62,5 +62,10 @@ namespace stepByStepMVC.Controllers
         {
             return View("CreateEmployee");
         }
+
+        public string SaveEmployee(Employee employee)
+        {
+            return employee.FirstName + " " + employee.LastName + " " + employee.Salary;
+        }
     }
 }
