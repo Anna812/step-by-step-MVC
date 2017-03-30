@@ -15,6 +15,7 @@
             document.getElementById('TxtSalary').value = "";
         }
     </script>
+    <script src="~/Scripts/Validations.js"></script>
 </head>
 <body>
     <div>
@@ -64,7 +65,7 @@
                 
                 <tr>
                     <td>
-                        <input type="submit" name="SubmitButton" value="Save Employee" />
+                        <input type="submit" name="SubmitButton" value="Save Employee" onclick="return isValid();" />
                         <input type="button" name="ResetButton" value="Reset" onclick="ResetForm();" />
                         <input type="submit" name="SubmitButton" value="Cancel" />
                     </td>
