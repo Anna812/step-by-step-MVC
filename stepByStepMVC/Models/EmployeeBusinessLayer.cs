@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using stepByStepMVC.DataAccessLayer;
 
 namespace stepByStepMVC.Models
 {
@@ -9,27 +10,8 @@ namespace stepByStepMVC.Models
     {
         public List<Employee> GetEmployees()
         {
-            List<Employee> employees = new List<Employee>();
-
-            Employee employee = new Employee();
-            employee.FirstName = "Dora";
-            employee.LastName = "Fazekas";
-            employee.Salary = 4000;
-            employees.Add(employee);
-
-            employee = new Employee();
-            employee.FirstName = "michael";
-            employee.LastName = "jackson";
-            employee.Salary = 16000;
-            employees.Add(employee);
-
-            employee = new Employee();
-            employee.FirstName = "robert";
-            employee.LastName = " pattinson";
-            employee.Salary = 20000;
-            employees.Add(employee);
-
-            return employees;
+            SalesERPDataAccessLayer salesERPDataAccessLayer = new SalesERPDataAccessLayer();
+            return salesERPDataAccessLayer.Employees.ToList();
         }
     }
 }
