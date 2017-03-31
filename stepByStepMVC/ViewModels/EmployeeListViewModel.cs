@@ -8,5 +8,6 @@ namespace stepByStepMVC.ViewModels
     public class EmployeeListViewModel
     {
         public List<EmployeeViewModel> Employees { get; set; }
+        public FooterViewModel FooterViewModel { get; set; }
     }
 }

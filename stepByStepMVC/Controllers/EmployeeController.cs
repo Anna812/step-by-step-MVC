@@ -19,6 +19,7 @@ namespace stepByStepMVC.Controllers
         {
             EmployeeListViewModel employeeListViewModel = new EmployeeListViewModel();
             employeeListViewModel.Employees = populateEmployeeListView();
+            employeeListViewModel.FooterViewModel = createFooterViewModel();
 
             return View("Index", employeeListViewModel);
         }
@@ -34,7 +35,7 @@ namespace stepByStepMVC.Controllers
                 employeeViewModel.EmployeeName = temp.FirstName + " " + temp.LastName;
                 employeeViewModel.Salary = temp.Salary.Value.ToString("C");
                 employeeViewModel.SalaryColor = defineSalaryColor(temp.Salary.Value);
-
+                
                 employeeViewModels.Add(employeeViewModel);
             }
             return employeeViewModels;
@@ -56,6 +57,14 @@ namespace stepByStepMVC.Controllers
             {
                 return "green";
             }
+        }
+
+        private FooterViewModel createFooterViewModel()
+        {
+            FooterViewModel result = new FooterViewModel();
+            result.CompanyName = "Mordor Co";
+            result.Year = DateTime.Now.Year.ToString();
+            return result;
         }
 
         public ActionResult AddNew()
