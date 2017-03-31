@@ -2,17 +2,26 @@
     if (document.getElementById('TxtFirstName').value == "") {
         return 'First name should not be empty';
     }
+    else {
+        return '';
+    }
 }
 
 function isFirstNameInvalid() {
     if (document.getElementById('TxtFirstName').value.indexOf("@") != -1) {
-        return 'First name can not contain @';
+        return 'First name cannot contain @';
+    }
+    else {
+        return '';
     }
 }
 
 function isLastNameInvalid() {
     if (document.getElementById('TxtLastName').value.length > 5) {
-        return 'Last name can not contain more than 5 characters';
+        return 'Last name cannot contain more than 5 characters';
+    }
+    else {
+        return '';
     }
 }
 
@@ -20,11 +29,17 @@ function isSalaryEmpty() {
     if (document.getElementById('TxtSalary').value == "") {
         return 'Salary should not be empty';
     }
+    else {
+        return '';
+    }
 }
 
 function isSalaryInvalid() {
-    if (isNaN(document.getElementById('TxTSalary').value)) {
+    if (isNaN(document.getElementById('TxtSalary').value)) {
         return 'Enter valid salary';
+    }
+    else {
+        return '';
     }
 }
 
